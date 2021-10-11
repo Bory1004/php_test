@@ -1,5 +1,7 @@
 # php_test
 
+mysql -> create table
+
 show databases;
 
 use test;

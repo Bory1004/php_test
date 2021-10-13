@@ -10,6 +10,14 @@ include "db_mysqli.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인페이지</title>
 </head>
+<style>
+    table, td, th {
+        width: 500px;
+        border : 1px solid black;
+        border-collapse : collapse;
+    };
+
+</style>
 <body>  
     <h1>
         <a href="/php_test/main.php">메인페이지</a>
@@ -18,7 +26,7 @@ include "db_mysqli.php";
     
     if(isset($_SESSION['id'])) {
         echo $_SESSION['id'];?>님 안녕하세요! <br/>
-        <a href="#">로그아웃</a>
+        <a href="/php_test/login/logout.php">로그아웃</a>
         <a href="/php_test/board/board_write.php">글쓰기</a>  
         <br/>
         <?php

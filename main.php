@@ -41,26 +41,26 @@ include "db_mysqli.php";
         <?php   
         }
         ?>
-        <table> 
-        <th>seq</th> 
-        <th>제목</th> 
-        <th>작성자</th> 
-        <th>날짜</th> 
-        <th>조회수</th>
-        <br/>
-        <?php
-        $sql = query("select * from board order by seq desc") 
-        or die ("알수없는 오류");
-        while($data = $sql->fetch_array()) { ?>
-        <tr> 
-            <td><?php echo $data["seq"]; ?></th> 
-            <td><?php echo $data["title"]; ?></th> 
-            <td><?php echo $data["content"]; ?></th> 
-            <td><?php echo $data["date"]; ?></th> 
-            <td><?php echo "조회수" ?></th> 
-        </tr>
-        <?php
-        }
-        ?>
+        <table>
+            <thead>게시판</thead>
+            <th>seq</th> 
+            <th>제목</th> 
+            <th>작성자</th> 
+            <th>날짜</th> 
+            <th>조회수</th>
+            <br/>
+            <?php
+                $sql = query("select * from board order by seq desc") or die ("알수없는 오류");
+                while($data = $sql->fetch_array()) { ?>
+            <tr> 
+                <td><?php echo $data["seq"]; ?></th> 
+                <td><a href="/php_test/board/board_read.php?seq=<?php echo $data["seq"];?>"><?php echo $data["title"]; ?></a></th> 
+                <td><?php echo $data["id"]; ?></th> 
+                <td><?php echo $data["date"]; ?></th> 
+                <td><?php echo $data["count"]; ?></th> 
+            </tr>
+            <?php
+            }
+            ?>
 </body>
 </html>

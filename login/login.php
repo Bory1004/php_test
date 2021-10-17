@@ -12,7 +12,6 @@
         비밀번호 : <input type="text" name="pw"><br>
         <input type="submit" value="로그인">
         <a href="/php_test/login/join.php">회원가입</a>
-        <a href="#">비밀번호 찾기</a>
     </form>
 </body>
 </html>

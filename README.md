@@ -10,6 +10,17 @@ create table test_tb(
 
 commit;
 
+CREATE TABLE member(
+	seq INT NOT NULL AUTO_INCREMENT,
+	id VARCHAR(20),
+    name VARCHAR(20),
+	pw VARCHAR(100),
+	join_date datetime not null,
+    grade int,
+    code VARCHAR(20),
+	PRIMARY KEY(seq)
+) ENGINE=MYISAM CHARSET=utf8;
+
 CREATE TABLE new_member(
 	seq INT NOT NULL AUTO_INCREMENT,
 	id VARCHAR(20),
@@ -44,8 +55,9 @@ CREATE TABLE board (
     title VARCHAR(100),
 	content VARCHAR(4000),
 	date date,
+    count int,
 	PRIMARY KEY(seq)
-) CHARSET=utf8;
+) ENGINE=MYISAM CHARSET=utf8;
 
 select * from board;
 drop table board;

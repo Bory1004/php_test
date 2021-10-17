@@ -9,7 +9,7 @@
 </head>
 <style>
     table, td, th {
-        width: 500px;
+        width: 600px;
         border : 1px solid black;
         border-collapse : collapse;
     };
@@ -24,7 +24,8 @@
         <th>name</th> 
         <th>join_date</th>
         <th>grade</th>
-        <?php $sql = query("select * from new_member"); 
+        <th>code</th>
+        <?php $sql = query("select * from member"); 
         while($data = $sql->fetch_array()) { ?>
             <tr> 
                 <td><?php echo $data["seq"]; ?></th> 
@@ -33,26 +34,10 @@
                 <td><?php echo $data["name"]; ?></th> 
                 <td><?php echo $data["join_date"]; ?></th>
                 <td><?php echo $data["grade"]; ?></th> 
+                <td><?php echo $data["code"]; ?></th>
             </tr>
         <?php 
-    } ?>
-    <table>
-        <thead>관리자 조회</thead>
-        <th>seq</th> 
-        <th>id</th> 
-        <th>pw</th> 
-        <th>name</th> 
-        <th>grade</th>
-        <?php $sql = query("select * from admin"); 
-        while($data = $sql->fetch_array()) { ?>
-            <tr> 
-                <td><?php echo $data["seq"]; ?></th> 
-                <td><?php echo $data["id"]; ?></th> 
-                <td><?php echo $data["pw"]; ?></th> 
-                <td><?php echo $data["name"]; ?></th> 
-                <td><?php echo $data["grade"]; ?></th> 
-            </tr> 
-        <?php 
-    } ?>
+    } 
+    ?>
 </body>
 </html>

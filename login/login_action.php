@@ -8,7 +8,7 @@ if($id == "" || $pwd == ""){
     echo "<script>alert('모두 빈칸');</script>";
     echo '<script> location.href="/php_test/login/login.php"; </script>'; 
 } else { 
-    $sql = mysqli_query($con,"select * from member where id='".$id."'") or die ("알수없는 오류"); 
+    $sql = mysqli_query($con,"select * from new_member where id='".$id."'") or die ("알수없는 오류"); 
     $member = $sql->fetch_array(); 
     //$hash_pwd = $member['pw'];
 

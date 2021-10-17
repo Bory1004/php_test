@@ -1,35 +1,63 @@
-# php_test
+CREATE DATABASE test;
 
-mysql
-show databases;
+select * from test_tb;
 
-use test;
+create table test_tb(
+	id varchar(20),
+    pw varchar(100),
+    address varchar(100)
+);
 
-CREATE TABLE member(
+commit;
+
+CREATE TABLE new_member(
 	seq INT NOT NULL AUTO_INCREMENT,
 	id VARCHAR(20),
     name VARCHAR(20),
 	pw VARCHAR(100),
-	join_date datetime not null, 
+	join_date datetime not null,
+    grade int,
 	PRIMARY KEY(seq)
-) ENGINE=MYISAM CHARSET=utf8;
+) CHARSET=utf8;
+
+CREATE TABLE old_member(
+	seq INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(20),
+	phone VARCHAR(100),
+	join_date datetime not null,
+    grade int,
+	PRIMARY KEY(seq)
+) CHARSET=utf8;
+
+CREATE TABLE admin(
+	seq INT NOT NULL AUTO_INCREMENT,
+	id VARCHAR(20),
+    name VARCHAR(20),
+	pw VARCHAR(100),
+    grade int,
+	PRIMARY KEY(seq)
+) CHARSET=utf8;
 
 CREATE TABLE board (
 	seq INT NOT NULL AUTO_INCREMENT,
 	id VARCHAR(20),
-	name VARCHAR(20),
     title VARCHAR(100),
 	content VARCHAR(4000),
 	date date,
 	PRIMARY KEY(seq)
-) ENGINE=MYISAM CHARSET=utf8;
+) CHARSET=utf8;
 
-drop table member;
+select * from board;
+drop table board;
 
 select * from member;
+drop table old_member;
+drop table admin;
 
-select * from board order by seq desc;
+INSERT INTO admin(id, pw, name, grade) values ('server_master', '111', '서버마스터', 1);
+INSERT INTO admin(id, pw, name, grade) values ('admin_master', '111', '원장', 2);
+INSERT INTO admin(id, pw, name, grade) values ('admin11', '111', '강사', 3);
 
-commit;
+INSERT INTO old_member(id, pw, name, grade) values ('admin11', '111', '강사', 3);
 
-INSERT INTO member(id, pw, name, join_date)VALUES("test","test","test", now());
+drop table test_tb;

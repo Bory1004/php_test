@@ -9,10 +9,30 @@
 <body>
     <form method="POST" action="/php_test/login/insert.php"> 
         <input type="text" name="name" placeholder="Name" /> <br /> 
-        <input type="text" name="id" placeholder="ID" /> <br /> 
-        <input type="password" name="pw" placeholder="Password" /><br /> 
-        <button type="submit">제출</button><br /> 
-        <a href="select.php"><button type="button">필드 조회하러 가기</button></a> &nbsp;<br />
+        <input type="text" id="id" name="id" placeholder="ID" /> <span id="id_ck"></span> <br />
+        <input type="password" name="pw" placeholder="Password" /><br />
+        <input type="hidden" name="grade" value="5" />
+        <button type="submit">가입</button><br /> 
+        <a href="select.php"><button type="button">전체 회원 조회하기</button></a> &nbsp;<br />
     </form>
 </body>
 </html>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+    $(function(){      
+        $("#id").blur(function(){
+            let id_in = $('#id').val();
+            //console.log(id_in);
+            $.ajax({
+                url: "/php_test/login/id_check.php",
+                type: "get",
+                data:{
+                    id:id_in,
+                }
+            }).done(function(data){
+                $('#id_ck').text(data);
+            })
+        })       
+    })
+
+</script>

@@ -22,12 +22,14 @@ include "db_mysqli.php";
     <h1>
         <a href="/php_test/main.php">메인페이지</a>
     </h1>
+    <a href="/php_test/login/select.php"><button type="button">전체 회원 조회하기</button></a> &nbsp;<br />
     <?php
     
     if(isset($_SESSION['id'])) {
         echo $_SESSION['id'];?>님 안녕하세요! <br/>
         <a href="/php_test/login/logout.php">로그아웃</a>
-        <a href="/php_test/board/board_write.php">글쓰기</a>  
+        <a href="/php_test/mypage/mypage_view.php">마이페이지</a>
+        <a href="/php_test/board/board_write.php">글쓰기</a>
         <br/>
         <?php
         }
